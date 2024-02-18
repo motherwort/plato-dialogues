@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .dialogueItem {
+            /* Center the form on the page */
+            margin: 0 auto;
+            width: 500px;
+            /* Form outline */
+            padding: 1em;
+            height: 100%;
+        }
+        .speech {
+            text-align: justify;
+            text-justify: auto;
+            height: 100%;
+        }
+        .inline-block {
+            display: inline-block;
+            vertical-align: middle;
+            align: center;
+        }
+        @media only screen and (max-width: 505px) {
+            .dialogueItem {
+                width: 100%;
+                border: 5px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+<div id="dialogueItem" class="dialogueItem">
+    {% include 'dialogue_item.j2' %}
+</div>
+</body>
+</html>

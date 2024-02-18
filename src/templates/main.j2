@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Платон. Диалоги</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .dialogueItem {
+            /* Center the form on the page */
+            margin: 0 auto;
+            width: 500px;
+            /* Form outline */
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+<div class="dialogueItem">
+    <h1>Платон. Диалоги</h1>
+
+{% for dialogue in dialogues %}
+<div><a href="{{ dialogue["url"] }}/info">{{ dialogue["title"] }}</a></div>
+{% endfor %}
+</div>
+</body>
+</html>

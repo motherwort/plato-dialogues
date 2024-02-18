@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .dialogueItem {
+            /* Center the form on the page */
+            margin: 0 auto;
+            width: 500px;
+            /* Form outline */
+            padding: 1em;
+        }
+        .speech {
+            text-justify: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="dialogueItem">
+    <h1>{{ title }}</h1>
+    <div>{{ bibliography }}</div>
+    </br>
+    <div>{{ characters }}</div>
+    </br>
+    <div class="w3-bar">
+        <a
+          class="w3-button w3-left w3-light-blue w3-hover-blue"
+          href="{{ read_href }}"
+        >
+            Читать
+        </a>
+</div>
+</body>
+</html>

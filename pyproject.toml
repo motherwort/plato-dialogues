@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "plato"
+version = "0.1.0"
+description = "Платон, Диалоги"
+authors = ["motherwort <32970725+motherwort@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "==0.95.1"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
+pydantic = {extras = ["dotenv"], version = "^1.10.7"}
+requests = "^2.31.0"
+jinja2 = "^3.1.2"
+markdown = "^3.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
