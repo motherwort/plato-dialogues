@@ -5,16 +5,18 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         body {
-            margin: 0;
             padding: 0;
-        }
-        .dialogueItem {
             /* Center the form on the page */
             margin: 0 auto;
             width: 500px;
-            /* Form outline */
-            padding: 1em;
             height: 100%;
+        }
+        .backLink {
+            padding: 0em 1em;
+            color: lightcoral;
+        }
+        .dialogueItem {
+            padding: 0.8em 1em;
         }
         .speech {
             text-align: justify;
@@ -27,7 +29,7 @@
             align: center;
         }
         @media only screen and (max-width: 505px) {
-            .dialogueItem {
+            body {
                 width: 100%;
                 border: 5px;
             }
@@ -36,6 +38,9 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
 <body>
+<div class="backLink">
+    <a href="/">Диалоги</a> / <a href="{{ back_link }}">{{ title }}</a> / <a href="">Текст</a>
+</div>
 <div id="dialogueItem" class="dialogueItem">
     {% include 'dialogue_item.j2' %}
 </div>

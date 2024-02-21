@@ -119,7 +119,10 @@ def dialogue(request: Request, response: Response, dialogue: str, item: int | Li
     if dialogue_item_context is None:
         return respond404(request=request)
     
-    context = {"request": request}
+    context = {
+        "back_link": f"/{dialogue}/info",
+        "request": request,
+    }
     context.update(dialogue_item_context)
 
 

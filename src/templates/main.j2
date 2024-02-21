@@ -4,16 +4,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
-        .dialogueItem {
+        body {
+            padding: 0;
             /* Center the form on the page */
             margin: 0 auto;
             width: 500px;
-            /* Form outline */
-            padding: 1em;
+            height: 100%;
+        }
+        .backLink {
+            padding: 0em 1em;
+            color: lightcoral;
+        }
+        .dialogueItem {
+            padding: 0.8em 1em;
+        }
+        @media only screen and (max-width: 505px) {
+            body {
+                width: 100%;
+                border: 5px;
+            }
         }
     </style>
 </head>
 <body>
+<div class="backLink">
+    <a href="/">Диалоги</a>
+</div>
 <div class="dialogueItem">
     <h1>Платон. Диалоги</h1>
 
