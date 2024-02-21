@@ -12,7 +12,7 @@
     {% endif %}
         &laquo; Назад
     </button>
-    {{ item }}
+    {{ item }} / {{ last_item }}
     {% if hx_get_next %}
     <button
         class="w3-button w3-right w3-light-blue w3-hover-blue"
@@ -29,7 +29,9 @@
 </div>
 
 <p>
+    {% if dialogue_item["speaker"] %}
     <b>{{ dialogue_item["speaker"] }}</b>
+    {% endif %}
     {% if hx_get_next %}
     <div class="speech"
         hx-get="{{ hx_get_next }}"
