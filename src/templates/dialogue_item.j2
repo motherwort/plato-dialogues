@@ -43,5 +43,11 @@
     <div class="speech">
     {% endif %}
     <p> {{ dialogue_item["speech"]|safe }}</p>
+
+    <div class="comment">
+        {% for comment in comments %}
+        {{comment |safe}}
+        {% endfor %}
+    </div>
     </div>
 </p>

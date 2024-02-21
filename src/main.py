@@ -1,4 +1,5 @@
 import json
+import re
 from typing import Literal
 from fastapi import FastAPI, Request, Response
 from fastapi.responses import RedirectResponse
@@ -50,10 +51,26 @@ def get_dialogue_item_context(dialogue: str, item: int):
         return None
     
     dialogue_item = dialogue_content["dialogue"][item - 1]
+
+    dialogue_comments = dialogue_content.get("comments", {})
+    comment_custom_key_mappings = dialogue_content.get("comment_custom_key_mappings", {})
+    keys_match = sorted(list(set([
+        comment_custom_key_mappings.get(key, key)
+        for key in re.findall(r"\{(\d+)\}", dialogue_item["speech"])
+    ])))
+
+    relevant_comments = [
+        markdown.markdown(f"`{key}`. {dialogue_comments[key]}")
+        for key in sorted(keys_match)
+        if key in dialogue_comments
+    ]
+
     dialogue_item["speech"] = markdown.markdown(dialogue_item["speech"])
+    dialogue_item["speech"] = re.sub(r" *\{(\d+)\}", r"<sup>\1</sup>", dialogue_item["speech"])
     return {
         "title": dialogue_content["title"],
         "dialogue_item": dialogue_item,
+        "comments": relevant_comments,
         "item": item,
         "last_item": last_item,
         "hx_get_prev": f"/api/{dialogue}/item/{item - 1}/" if item > 1 else None,
