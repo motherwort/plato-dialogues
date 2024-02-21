@@ -14,6 +14,7 @@ app = FastAPI(title="Plato")
 
 DIALOGUE_FILENAME = {
     "gorgias": "src/content/gorgias.json",
+    "symposium": "src/content/symposium.json",
 }
 
 def get_dialogue_content(dialogue: str):
@@ -71,7 +72,11 @@ def main(request: Request):
                 {
                     "title": "Горгий",
                     "url": "/gorgias"
-                }
+                },
+                {
+                    "title": "Пир",
+                    "url": "/symposium"
+                },
             ],
             "request": request,
         }
