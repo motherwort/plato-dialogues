@@ -29,7 +29,7 @@
         hx-get="{{ hx_get_next }}"
         hx-swap="innerHTML"
         hx-target="#dialogueItem"
-        hx-replace-url={{ hx_get_next_replace_url }}]
+        hx-replace-url={{ hx_get_next_replace_url }}
     >
     {% else %}
     <button id="nextButton" class="w3-button w3-right w3-disabled">
@@ -38,29 +38,22 @@
     </button>
 </div>
 
-<p>
+<div class="pageContent">
+    <p></p>
     {% if dialogue_item["speaker"] %}
     <b>{{ dialogue_item["speaker"] }}</b>
     {% endif %}
-    {% if hx_get_next %}
-    <div class="speech"
-        hx-get="{{ hx_get_next }}"
-        hx-swap="innerHTML"
-        hx-target="#dialogueItem"
-        hx-replace-url={{ hx_get_next_replace_url }}
-    >
-    {% else %}
-    <div class="speech">
-    {% endif %}
+    <div id="speech" class="speech">
     <p> {{ dialogue_item["speech"]|safe }}</p>
+    </div>
 
     <div class="comment">
         {% for comment in comments %}
         {{comment |safe}}
         {% endfor %}
     </div>
-    </div>
-</p>
+    <p id="clickableZone" style="flex-grow: 1;"></p>
+</div>
 
 <script>
     document.addEventListener("keyup", (event) => {
@@ -71,4 +64,16 @@
             document.getElementById("prevButton").click();
         }
       });
+    document.getElementById('speech').addEventListener('click', (e) => {
+        const cellText = document.getSelection();
+        if (cellText.type === 'Range') {
+            e.stopPropagation();
+        }
+        else {
+            document.getElementById("nextButton").click();
+        }
+    })
+    document.getElementById('clickableZone').addEventListener('click', (e) => {
+        document.getElementById("nextButton").click();
+    })
 </script>
