@@ -38,7 +38,7 @@
     </button>
 </div>
 
-<div class="pageContent">
+<div id="pageContent" class="pageContent">
     <p></p>
     {% if dialogue_item["speaker"] %}
     <b>{{ dialogue_item["speaker"] }}</b>
@@ -64,7 +64,7 @@
             document.getElementById("prevButton").click();
         }
       });
-    document.getElementById('speech').addEventListener('click', (e) => {
+    document.getElementById('pageContent').addEventListener('click', (e) => {
         const cellText = document.getSelection();
         if (cellText.type === 'Range') {
             e.stopPropagation();
@@ -72,8 +72,5 @@
         else {
             document.getElementById("nextButton").click();
         }
-    })
-    document.getElementById('clickableZone').addEventListener('click', (e) => {
-        document.getElementById("nextButton").click();
     })
 </script>
